@@ -64,7 +64,10 @@ class HomeScreen extends StatelessWidget {
                         return Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushReplacementNamed(
+                                  context, Routes().facultyscreen);
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white24,
