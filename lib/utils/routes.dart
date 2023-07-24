@@ -1,3 +1,3 @@
 class Routes {
-  final homescreen = '/homescreen', loginscreen = '/loginscreen';
+  final homescreen = '/homescreen', landingscreen = '/landingscreen';
 }

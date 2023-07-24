@@ -13,6 +13,12 @@ class LandingScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           color: Colors.blue,
+          image: DecorationImage(
+            opacity: 0.8,
+            image: AssetImage(
+              'assets/images/back.jpg',
+            ),
+          ),
         ),
         child: Center(
           child: Column(
@@ -43,6 +49,10 @@ class LandingScreen extends StatelessWidget {
               ),
               const SizedBox(
                 height: 10,
+              ),
+              Image.asset(
+                'assets/images/logo.png',
+                height: 250,
               ),
               const SizedBox(
                 height: 30,
