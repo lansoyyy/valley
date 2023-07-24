@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valley/utils/routes.dart';
 import 'package:valley/widgets/button_widget.dart';
 import 'package:valley/widgets/text_widget.dart';
 
@@ -66,7 +67,10 @@ class LandingScreen extends StatelessWidget {
                     height: 60,
                     color: Colors.white,
                     label: 'Faculty Schedule',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, Routes().homescreen);
+                    },
                   ),
                   ButtonWidget(
                     fontColor: Colors.black,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valley/screens/auth/landing_screen.dart';
+import 'package:valley/screens/faculty_screen.dart';
 import 'package:valley/screens/home_screen.dart';
 import 'package:valley/utils/routes.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes().landingscreen: (context) => const LandingScreen(),
         Routes().homescreen: (context) => const HomeScreen(),
+        Routes().facultyscreen: (context) => const FacultyScreen(),
       },
     );
   }
