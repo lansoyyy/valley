@@ -26,15 +26,7 @@ class AvailabilityScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 175,
-              ),
-              TextBold(
-                text: 'Available',
-                fontSize: 24,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                height: 20,
+                height: 180,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -63,49 +55,28 @@ class AvailabilityScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextBold(
-                        text: 'BSIT 3C @MAC LAB',
+                        text: 'AVAILABLE',
                         fontSize: 28,
                         color: Colors.white,
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 20,
                       ),
                       TextBold(
-                        text: '7:30AM TO 5:00PM',
+                        text: 'Tommorow @3:30PM to 5:00PM',
+                        fontSize: 28,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextBold(
+                        text: 'You can come to my office @CS Office',
                         fontSize: 28,
                         color: Colors.white,
                       ),
                       const SizedBox(
                         height: 30,
-                      ),
-                      TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.calendar_month_outlined,
-                          color: Colors.white,
-                          size: 42,
-                        ),
-                        label: TextBold(
-                          text: 'View Schedule',
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.schedule_outlined,
-                          color: Colors.white,
-                          size: 42,
-                        ),
-                        label: TextBold(
-                          text: 'View Availability',
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
                       ),
                     ],
                   ),
@@ -123,7 +94,7 @@ class AvailabilityScreen extends StatelessWidget {
                   child: TextButton.icon(
                     onPressed: () {
                       Navigator.pushReplacementNamed(
-                          context, Routes().homescreen);
+                          context, Routes().facultyscreen);
                     },
                     icon: const Icon(
                       Icons.arrow_back_ios_new_rounded,

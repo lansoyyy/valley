@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/routes.dart';
 import '../widgets/text_widget.dart';
 
 class ScheduleScreen extends StatelessWidget {
@@ -60,7 +61,35 @@ class ScheduleScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                )
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 50),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: TextButton.icon(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, Routes().facultyscreen);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                      label: TextBold(
+                        text: 'Back',
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
               ],
             ),
           ),
