@@ -3,5 +3,6 @@ class Routes {
       landingscreen = '/landingscreen',
       facultyscreen = '/facultyscreen',
       schedulescreen = '/schedulescreen',
-      availabilityscreen = '/availabilityscreen';
+      availabilityscreen = '/availabilityscreen',
+      attendancescreen = '/attendancescreen';
 }

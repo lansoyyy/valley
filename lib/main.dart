@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valley/screens/attendance_screen.dart';
 import 'package:valley/screens/auth/landing_screen.dart';
 import 'package:valley/screens/availability_screen.dart';
 import 'package:valley/screens/faculty_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         Routes().facultyscreen: (context) => const FacultyScreen(),
         Routes().schedulescreen: (context) => const ScheduleScreen(),
         Routes().availabilityscreen: (context) => const AvailabilityScreen(),
+        Routes().attendancescreen: (context) => const AttendanceScreen(),
       },
     );
   }

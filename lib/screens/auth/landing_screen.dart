@@ -79,7 +79,10 @@ class LandingScreen extends StatelessWidget {
                     height: 60,
                     color: Colors.white,
                     label: 'Student Attendance',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, Routes().attendancescreen);
+                    },
                   ),
                 ],
               ),
