@@ -15,10 +15,11 @@ class LandingScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.blue,
           image: DecorationImage(
-            opacity: 0.8,
+            opacity: 110,
             image: AssetImage(
               'assets/images/back.jpg',
             ),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(

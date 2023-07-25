@@ -3,8 +3,8 @@ import 'package:valley/utils/routes.dart';
 
 import '../widgets/text_widget.dart';
 
-class FacultyScreen extends StatelessWidget {
-  const FacultyScreen({super.key});
+class AvailabilityScreen extends StatelessWidget {
+  const AvailabilityScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,55 +78,33 @@ class FacultyScreen extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(100)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                          child: TextButton.icon(
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, Routes().schedulescreen);
-                            },
-                            icon: const Icon(
-                              Icons.calendar_month_outlined,
-                              color: Colors.white,
-                              size: 42,
-                            ),
-                            label: TextBold(
-                              text: 'View Schedule',
-                              fontSize: 24,
-                              color: Colors.white,
-                            ),
-                          ),
+                      TextButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.calendar_month_outlined,
+                          color: Colors.white,
+                          size: 42,
+                        ),
+                        label: TextBold(
+                          text: 'View Schedule',
+                          fontSize: 24,
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(100)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                          child: TextButton.icon(
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, Routes().availabilityscreen);
-                            },
-                            icon: const Icon(
-                              Icons.schedule_outlined,
-                              color: Colors.white,
-                              size: 42,
-                            ),
-                            label: TextBold(
-                              text: 'View Availability',
-                              fontSize: 24,
-                              color: Colors.white,
-                            ),
-                          ),
+                      TextButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.schedule_outlined,
+                          color: Colors.white,
+                          size: 42,
+                        ),
+                        label: TextBold(
+                          text: 'View Availability',
+                          fontSize: 24,
+                          color: Colors.white,
                         ),
                       ),
                     ],
