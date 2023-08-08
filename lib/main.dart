@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:valley/screens/attendance_screen.dart';
 import 'package:valley/screens/auth/landing_screen.dart';
@@ -7,7 +8,16 @@ import 'package:valley/screens/home_screen.dart';
 import 'package:valley/screens/schedule_screen.dart';
 import 'package:valley/utils/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          authDomain: 'valley-9b203.firebaseapp.com',
+          apiKey: "AIzaSyBYw1II0TSmA-HXeU1NJI1WF2xzyPFIhdQ",
+          appId: "1:354930278705:web:4353cd8bf8ccee79173010",
+          messagingSenderId: "354930278705",
+          projectId: "valley-9b203",
+          storageBucket: "valley-9b203.appspot.com"));
   runApp(const MyApp());
 }
 
