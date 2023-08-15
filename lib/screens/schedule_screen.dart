@@ -1,10 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../utils/routes.dart';
 import '../widgets/text_widget.dart';
 
 class ScheduleScreen extends StatelessWidget {
-  const ScheduleScreen({super.key});
+  final box = GetStorage();
+
+  ScheduleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,40 +32,66 @@ class ScheduleScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: SizedBox(
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextBold(
-                                  text: 'Mac Laboratory',
-                                  fontSize: 28,
-                                  color: Colors.white),
-                              const SizedBox(
-                                width: 50,
-                              ),
-                              TextBold(
-                                  text: 'BSIT 3B',
-                                  fontSize: 28,
-                                  color: Colors.white),
-                              const SizedBox(
-                                width: 50,
-                              ),
-                              TextBold(
-                                  text: 'Monday 8:30AM - 4:30PM',
-                                  fontSize: 28,
-                                  color: Colors.white),
-                            ],
-                          ),
+                StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('Schedules')
+                        .where('userId', isEqualTo: box.read('id'))
+                        .snapshots(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (snapshot.hasError) {
+                        print(snapshot.error);
+                        return const Center(child: Text('Error'));
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Padding(
+                          padding: EdgeInsets.only(top: 50),
+                          child: Center(
+                              child: CircularProgressIndicator(
+                            color: Colors.black,
+                          )),
                         );
-                      },
-                    ),
-                  ),
-                ),
+                      }
+
+                      final data = snapshot.requireData;
+                      return Expanded(
+                        child: SizedBox(
+                          child: ListView.builder(
+                            itemCount: data.docs.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 10, bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextBold(
+                                        text: data.docs[index]['name'],
+                                        fontSize: 28,
+                                        color: Colors.white),
+                                    const SizedBox(
+                                      width: 50,
+                                    ),
+                                    TextBold(
+                                        text: data.docs[index]['section'],
+                                        fontSize: 28,
+                                        color: Colors.white),
+                                    const SizedBox(
+                                      width: 50,
+                                    ),
+                                    TextBold(
+                                        text:
+                                            '${data.docs[index]['day']} ${data.docs[index]['timeFrom']} - ${data.docs[index]['timeTo']}',
+                                        fontSize: 28,
+                                        color: Colors.white),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    }),
                 const SizedBox(
                   height: 50,
                 ),
