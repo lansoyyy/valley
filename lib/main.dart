@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       home: const LandingScreen(),
       routes: {
         Routes().landingscreen: (context) => const LandingScreen(),
-        Routes().homescreen: (context) => const HomeScreen(),
+        Routes().homescreen: (context) => HomeScreen(),
         Routes().facultyscreen: (context) => const FacultyScreen(),
         Routes().schedulescreen: (context) => const ScheduleScreen(),
         Routes().availabilityscreen: (context) => const AvailabilityScreen(),

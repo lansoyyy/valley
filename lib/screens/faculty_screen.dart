@@ -114,7 +114,9 @@ class FacultyScreen extends StatelessWidget {
                           child: TextButton.icon(
                             onPressed: () {
                               Navigator.pushReplacementNamed(
-                                  context, Routes().availabilityscreen);
+                                context,
+                                Routes().availabilityscreen,
+                              );
                             },
                             icon: const Icon(
                               Icons.schedule_outlined,
