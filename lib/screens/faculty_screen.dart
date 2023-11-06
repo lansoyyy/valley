@@ -146,7 +146,7 @@ class FacultyScreen extends StatelessWidget {
                                     size: 42,
                                   ),
                                   label: TextBold(
-                                    text: 'View Availability',
+                                    text: 'View Workload',
                                     fontSize: 24,
                                     color: Colors.white,
                                   ),
