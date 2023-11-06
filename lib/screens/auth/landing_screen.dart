@@ -78,7 +78,7 @@ class LandingScreen extends StatelessWidget {
                     radius: 100,
                     height: 60,
                     color: Colors.white,
-                    label: 'Student Attendance',
+                    label: 'View Attendance',
                     onPressed: () {
                       Navigator.pushReplacementNamed(
                           context, Routes().attendancescreen);
