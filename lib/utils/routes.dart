@@ -4,5 +4,5 @@ class Routes {
       facultyscreen = '/facultyscreen',
       schedulescreen = '/schedulescreen',
       availabilityscreen = '/availabilityscreen',
-      attendancescreen = '/attendancescreen';
+      attendancescreen = '/attendancescreen',  workloadscreen = '/workloadscreen';
 }
