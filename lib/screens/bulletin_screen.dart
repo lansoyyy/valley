@@ -1,3 +1,5 @@
+import 'package:cell_calendar/cell_calendar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:valley/widgets/button_widget.dart';
@@ -63,10 +65,63 @@ class FacultyBulletinScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        const Card(
-                          child: SizedBox(
-                            height: 500,
-                            width: 400,
+                        Card(
+                          child: Card(
+                            child: SizedBox(
+                              width: 500,
+                              height: 500,
+                              child: CellCalendar(
+                                onCellTapped: (date) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return StreamBuilder<QuerySnapshot>(
+                                          stream: FirebaseFirestore.instance
+                                              .collection('Reservations')
+                                              .where('date',
+                                                  isEqualTo:
+                                                      '${date.year}-${date.month}-${date.day}')
+                                              .snapshots(),
+                                          builder: (BuildContext context,
+                                              AsyncSnapshot<QuerySnapshot>
+                                                  snapshot) {
+                                            if (snapshot.hasError) {
+                                              print('error');
+                                              return const Center(
+                                                  child: Text('Error'));
+                                            }
+                                            if (snapshot.connectionState ==
+                                                ConnectionState.waiting) {
+                                              return const Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 50),
+                                                child: Center(
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                  color: Colors.black,
+                                                )),
+                                              );
+                                            }
+
+                                            final data = snapshot.requireData;
+                                            return Dialog(
+                                              child: SizedBox(
+                                                height: 500,
+                                                width: 500,
+                                                child: ListView.builder(
+                                                  itemBuilder:
+                                                      (context, index) {
+                                                    return const ListTile();
+                                                  },
+                                                ),
+                                              ),
+                                            );
+                                          });
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ],
