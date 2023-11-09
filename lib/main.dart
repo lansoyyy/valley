@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:valley/screens/attendance_screen.dart';
 import 'package:valley/screens/auth/landing_screen.dart';
 import 'package:valley/screens/availability_screen.dart';
+import 'package:valley/screens/bulletin_screen.dart';
 import 'package:valley/screens/faculty_screen.dart';
 import 'package:valley/screens/home_screen.dart';
 import 'package:valley/screens/schedule_screen.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
         Routes().schedulescreen: (context) => ScheduleScreen(),
         Routes().availabilityscreen: (context) => AvailabilityScreen(),
         Routes().attendancescreen: (context) => const AttendanceScreen(),
-                Routes().workloadscreen: (context) => const WorkloadScreen(),
+        Routes().workloadscreen: (context) => const WorkloadScreen(),
+        Routes().facultybulletinscreen: (context) => FacultyBulletinScreen(),
       },
     );
   }

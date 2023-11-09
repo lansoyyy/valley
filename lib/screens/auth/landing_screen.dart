@@ -70,7 +70,7 @@ class LandingScreen extends StatelessWidget {
                     label: 'Faculty Bulletin',
                     onPressed: () {
                       Navigator.pushReplacementNamed(
-                          context, Routes().homescreen);
+                          context, Routes().facultybulletinscreen);
                     },
                   ),
                   ButtonWidget(
@@ -78,7 +78,7 @@ class LandingScreen extends StatelessWidget {
                     radius: 100,
                     height: 60,
                     color: Colors.white,
-                    label: 'View Attendance',
+                    label: 'Student Attendance',
                     onPressed: () {
                       Navigator.pushReplacementNamed(
                           context, Routes().attendancescreen);
