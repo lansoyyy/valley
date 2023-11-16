@@ -138,10 +138,53 @@ class FacultyBulletinScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        const Card(
+                        Card(
                           child: SizedBox(
                             height: 500,
                             width: 400,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: StreamBuilder<QuerySnapshot>(
+                                  stream: FirebaseFirestore.instance
+                                      .collection('Announcements')
+                                      .where('toshow', isEqualTo: true)
+                                      .snapshots(),
+                                  builder: (BuildContext context,
+                                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                                    if (snapshot.hasError) {
+                                      print(snapshot.error);
+                                      return const Center(child: Text('Error'));
+                                    }
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return const Padding(
+                                        padding: EdgeInsets.only(top: 50),
+                                        child: Center(
+                                            child: CircularProgressIndicator(
+                                          color: Colors.black,
+                                        )),
+                                      );
+                                    }
+
+                                    final data = snapshot.requireData;
+                                    return SizedBox(
+                                      height: 300,
+                                      width: double.infinity,
+                                      child: ListView.builder(
+                                        itemCount: data.docs.length,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            title: TextRegular(
+                                                text:
+                                                    'Title: ${data.docs[index]['description']}',
+                                                fontSize: 14,
+                                                color: Colors.black),
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  }),
+                            ),
                           ),
                         ),
                       ],
